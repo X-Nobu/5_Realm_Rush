@@ -14,7 +14,7 @@ public class EnemyDamage : MonoBehaviour {
     {
         
         ProcessHit();
-        if (hitPoints <= 1)
+        if (hitPoints <= 0)
         {
             KillEnemy();
         }
