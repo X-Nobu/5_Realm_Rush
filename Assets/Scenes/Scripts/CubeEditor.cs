@@ -9,7 +9,7 @@ public class CubeEditor : MonoBehaviour {
 
     private void Awake()
     {
-        waypoint.GetComponent<Waypoint>();
+        waypoint = GetComponent<Waypoint>();
     }
 
     void Start()
