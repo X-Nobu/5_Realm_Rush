@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startwaypoint: {fileID: 679326615}
-  endwaypoint: {fileID: 1611964392}
+  endwaypoint: {fileID: 679326615}
 --- !u!1001 &1106817845
 Prefab:
   m_ObjectHideFlags: 0
