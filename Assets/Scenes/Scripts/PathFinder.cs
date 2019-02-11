@@ -29,37 +29,60 @@ public class PathFinder : MonoBehaviour {
     {
         queue.Enqueue(startwaypoint);
 
-        while(queue.Count > 0)
+        while(queue.Count > 0 && isRunning)
         {
             var searchCenter = queue.Dequeue();
+            print("searching from: " + searchCenter);
+            searchCenter.isExplored = true;
             print(searchCenter); // remove later
             HaltIfEndFound(searchCenter);
+            ExploreNeighbours(searchCenter);
         }
-        print("finshed path finding?"); // rmeov elater
+        print("finished path finding?"); // rmeov elater
     }
 
     private void HaltIfEndFound(Waypoint searchCenter)
     {
         if (searchCenter == endwaypoint)
         {
-            print("Searching from end node"); // remove later
+            print("Searching from end node, therefore stopping"); // remove later
             isRunning = false;
         }
     }
 
-    private void ExploreNeighbours()
+    private void ExploreNeighbours(Waypoint from)
     {
+        if (!isRunning)
+        {
+            return;
+        }
         foreach (Vector2Int direction in directions)
         {
-            Vector2Int explorationCoordinates = startwaypoint.GetGridPos() + direction;
+            Vector2Int explorationCoordinates = from.GetGridPos() + direction;
             try
             {
-                grid[explorationCoordinates].SetTopColor(Color.blue);
+                QueueNewNeighbours(explorationCoordinates);
+
             }
             catch
             {
 
             }
+        }
+    }
+
+    private void QueueNewNeighbours(Vector2Int explorationCoordinates)
+    {
+        Waypoint neighbour = grid[explorationCoordinates];
+        if (neighbour.isExplored)
+        {
+
+        }
+        else
+        {
+            neighbour.SetTopColor(Color.blue); // move later
+            queue.Enqueue(neighbour);
+            print("Queueing " + neighbour);
         }
     }
 
