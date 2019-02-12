@@ -1954,6 +1954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090419520}
   - component: {fileID: 1090419521}
+  - component: {fileID: 1090419522}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -2036,6 +2037,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startwaypoint: {fileID: 679326615}
   endwaypoint: {fileID: 480048309}
+--- !u!114 &1090419522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1090419519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbac7b37bea6fd54b9cb84b84472be55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerLimit: 5
+  towerPrefab: {fileID: 114527993066935990, guid: 34195380db55faf4196e6deba4a02776,
+    type: 2}
 --- !u!1001 &1102782124
 Prefab:
   m_ObjectHideFlags: 0
