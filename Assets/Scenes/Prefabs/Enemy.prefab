@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4911856350969510}
   - component: {fileID: 33849446289022762}
   - component: {fileID: 23760367812098758}
+  - component: {fileID: 65958958776276124}
   m_Layer: 0
-  m_Name: Enemy_A
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,6 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4416723513977690}
   - component: {fileID: 114255253815485782}
+  - component: {fileID: 54539197025326358}
+  - component: {fileID: 114126584444136326}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -50,8 +53,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863487341643456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.594118, y: 1.191924, z: -13.330861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4911856350969510}
@@ -113,6 +116,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860168844821154}
   m_Mesh: {fileID: 4300000, guid: 042c32b34794f584aa882ba5397f2c19, type: 3}
+--- !u!54 &54539197025326358
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863487341643456}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65958958776276124
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860168844821154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 14, z: 13}
+  m_Center: {x: 0, y: 7, z: 0}
+--- !u!114 &114126584444136326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863487341643456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e529fbd0e9c1c064b8275fb64ca4bebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 10
 --- !u!114 &114255253815485782
 MonoBehaviour:
   m_ObjectHideFlags: 1
