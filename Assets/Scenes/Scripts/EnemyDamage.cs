@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour {
+
+    [SerializeField] Collider collisionMesh;
     [SerializeField] int hitPoints = 10;
-	// Use this for initialization
-	void Start () {
+    [SerializeField] ParticleSystem hitParticlePrefab;
+    [SerializeField] ParticleSystem deathParticlePrefab;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -22,12 +26,14 @@ public class EnemyDamage : MonoBehaviour {
 
     private void KillEnemy()
     {
+        var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+        vfx.Play();
         Destroy(gameObject);
     }
 
     void ProcessHit()
     {
         hitPoints = hitPoints - 1;
-     //   print("current hitpoints are " + hitPoints);
+        hitParticlePrefab.Play();
     }
 }
