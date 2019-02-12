@@ -6,6 +6,7 @@ public class TowerFactory : MonoBehaviour {
 
     [SerializeField] int towerLimit = 5;
     [SerializeField] Tower towerPrefab;
+    [SerializeField] Transform towerParentTransform;
 
     Queue<Tower> towerQueue = new Queue<Tower>();
 
@@ -26,19 +27,27 @@ public class TowerFactory : MonoBehaviour {
         }
     }
 
-    private void MoveExisitingTower(Waypoint basewaypoint)
+    private void MoveExisitingTower(Waypoint newbasewaypoint)
     {
         var oldTower = towerQueue.Dequeue();
-        basewaypoint.isPlaceable = true;
-
+        oldTower.basewaypoint.isPlaceable = true;
+        newbasewaypoint.isPlaceable = false;
         towerQueue.Enqueue(oldTower);
+
+        oldTower.basewaypoint = newbasewaypoint;
+
+        oldTower.transform.position = newbasewaypoint.transform.position;
     }
 
     private void InstantiateNewTower(Waypoint basewaypoint)
     {
        var newTower = Instantiate(towerPrefab, basewaypoint.transform.position, Quaternion.identity);
+        newTower.transform.parent = towerParentTransform;
        basewaypoint.isPlaceable = false;
 
-        towerQueue.Enqueue(newTower);
+       newTower.basewaypoint = basewaypoint;
+    
+
+       towerQueue.Enqueue(newTower);
     }
 }
