@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Waypoint : MonoBehaviour {
-    
+
+   
     public bool isExplored = false;
     public Waypoint exploredFrom;
     public bool isPlaceable = true;
+
+    [SerializeField] Tower towerPrefab;
+
     Vector2Int gridPos;
     const int gridSize = 10;
-    
+
    
-	public int GetGridSize()
+
+    public int GetGridSize()
     {
         return gridSize;
     }
@@ -30,7 +35,7 @@ public class Waypoint : MonoBehaviour {
         {
             if (isPlaceable)
             {
-                print(gameObject.name);
+                Instantiate(towerPrefab, transform.position, Quaternion.identity);
             }
             else
             {
